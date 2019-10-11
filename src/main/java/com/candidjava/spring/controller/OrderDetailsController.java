@@ -12,6 +12,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
+/**
+ * Order Rest Controller.
+ */
 @RestController
 @RequestMapping("/order")
 public class OrderDetailsController {
@@ -29,7 +32,7 @@ public class OrderDetailsController {
         return new ResponseEntity<OrderDetails>(user, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/create", headers = "Accept=application/json")
+    @PostMapping(value = "/create")
     public ResponseEntity<Void> createUser(@RequestBody OrderDetails user, UriComponentsBuilder ucBuilder) {
         orderDetailsService.createUser(user);
         HttpHeaders headers = new HttpHeaders();
@@ -47,7 +50,7 @@ public class OrderDetailsController {
         return orderDetailsService.getUser();
     }
 
-    @DeleteMapping(value = "/{id}", headers = "Accept=application/json")
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<OrderDetails> deleteUser(@PathVariable("id") int id) {
         OrderDetails user = orderDetailsService.findById(id);
         if (user == null) {
