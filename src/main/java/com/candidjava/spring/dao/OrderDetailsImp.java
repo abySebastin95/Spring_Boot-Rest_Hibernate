@@ -7,11 +7,13 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class OrderDetailsImp implements OrderDetailsDao {
+
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -45,7 +47,11 @@ public class OrderDetailsImp implements OrderDetailsDao {
             OrderDetailsDto orderDetailsDto = new OrderDetailsDto();
             orderDetailsDto.setUsername(orderDetails.getOrder().getUser().getName());
             orderDetailsDto.setOrderId(orderDetails.getOrder().getOrder_Id());
-            orderDetailsDto.setDatetime(orderDetails.getDatetime());
+            SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+           // DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+
+            orderDetailsDto.setDatetime(sf.format(orderDetails.getDatetime()));
             orderDetailsDto.setItemName(orderDetails.getItems().getItemName());
             orderDetailsDto.setOrderType(orderDetails.getFdType().getFdTypeName());
             orderDetailsDto.setQuantity(orderDetails.getQuantity());

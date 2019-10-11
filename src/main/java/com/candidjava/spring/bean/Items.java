@@ -15,13 +15,8 @@ public class Items {
 
     private Integer itemId;
 
-/*    @ManyToOne
-    @JoinColumn(name = "orderDetailsId")
-    private OrderDetails orderDetails;*/
-
     private String itemName;
     private Integer itemQuantity;
-    private Integer itemRemQuantity;
     private Integer itemType;
     private Date date;
 
@@ -47,14 +42,6 @@ public class Items {
 
     public void setItemQuantity(Integer itemQuantity) {
         this.itemQuantity = itemQuantity;
-    }
-
-    public Integer getItemRemQuantity() {
-        return itemRemQuantity;
-    }
-
-    public void setItemRemQuantity(Integer itemRemQuantity) {
-        this.itemRemQuantity = itemRemQuantity;
     }
 
     public Integer getItemType() {

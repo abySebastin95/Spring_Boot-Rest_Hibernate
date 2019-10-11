@@ -1,7 +1,5 @@
 package com.candidjava.spring.dto;
 
-import java.util.Date;
-
 public class OrderDetailsDto {
 
     private Integer orderId;
@@ -9,7 +7,7 @@ public class OrderDetailsDto {
     private String orderType;
     private String itemName;
     private Integer quantity;
-    private Date datetime;
+    private String datetime;
 
     public Integer getOrderId() {
         return orderId;
@@ -51,11 +49,11 @@ public class OrderDetailsDto {
         this.quantity = quantity;
     }
 
-    public Date getDatetime() {
+    public String getDatetime() {
         return datetime;
     }
 
-    public void setDatetime(Date datetime) {
+    public void setDatetime(String datetime) {
         this.datetime = datetime;
     }
 }
